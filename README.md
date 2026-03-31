@@ -85,7 +85,7 @@ This framework is **model-agnostic** and integrates with:
 ## 📄 Citation
 
 ```bibtex
-@article{elayan2026quantum,
+@article{elayankontar2026quantum,
   title={Behavioral Heterogeneity as Quantum-Inspired Representation},
   author={Elayan, Mohammad and Kontar, Wissam},
   journal={arXiv preprint arXiv:2603.22729},
