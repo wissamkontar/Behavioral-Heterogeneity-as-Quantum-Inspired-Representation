@@ -1,99 +1,90 @@
 # Behavioral Heterogeneity as Quantum-Inspired Representation
 
-This repository accompanies the paper:
+> A quantum-inspired framework for modeling driver behavior as continuous dynamic states rather than static categories.
 
-**Elayan, M., & Kontar, W. (2026)**. "*Behavioral Heterogeneity as Quantum-Inspired Representation*." arXiv:2603.22729
+[![arXiv](https://img.shields.io/badge/arXiv-2603.22729-b31b1b.svg)](https://arxiv.org/abs/2603.22729)
 
----
-
-## Overview
-
-This project introduces a quantum-inspired framework for modeling driver behavior as a dynamic latent state rather than static categories.
-
-- Drivers are represented using density matrices
-- Behavioral features are embedded via Random Fourier Features (RFF)
-- The framework captures:
-  - Temporal evolution
-  - Context sensitivity
-  - Interaction between behavioral features
-
-The goal is to move beyond rigid labels (e.g., aggressive vs. timid) and instead model **continuous behavioral transitions**.
+**Authors:** Mohammad Elayan & Wissam Kontar (2026)
 
 ---
 
-## Framework
+## 🎯 Key Idea
+
+Traditional driver classification uses rigid labels (*aggressive*, *timid*, etc.). This framework instead models behavior as:
+
+- **Dynamic latent states** represented by density matrices
+- **Continuous transitions** between behavioral modes
+- **Context-sensitive** responses to traffic conditions
+
+## 🧩 Framework Components
 
 ![Quantum Pipeline](quantum_pipeline.png)
 
-The pipeline consists of:
+```
+Behavioral Features → RFF Embedding → Density Matrix → Context Weighting
+    (speed, accel,       (nonlinear        (feature         (traffic
+     headway)            projection)      interactions)     context)
+```
 
-1. **Behavioral Vector Construction**
-   - Speed differences
-   - Acceleration
-   - Headway
+### Pipeline Stages
 
-2. **Nonlinear Embedding (RFF Mapping)**
-   - Projects behavioral features into a higher-dimensional space
-
-3. **Feature Map Structure**
-   - Forms a structured latent representation
-
-4. **Density Matrix Formation**
-   - Produces a symmetric, positive semi-definite matrix  
-   - Diagonal → feature importance  
-   - Off-diagonal → feature interactions  
-
-5. **Context Weighting**
-   - Distance to pedestrian  
-   - Stop distance  
-   - Density  
-   - Average speed  
+1. **Feature Extraction** — Speed differences, acceleration, headway
+2. **Nonlinear Embedding** — Random Fourier Features (RFF) mapping
+3. **Density Matrix** — Symmetric, positive semi-definite representation
+   - *Diagonal*: Feature importance
+   - *Off-diagonal*: Feature interactions
+4. **Context Integration** — Distance to pedestrians, stop distance, traffic density, average speed
 
 ---
 
-## Data
+## 📊 Data
 
-This repository uses **Third Generation Simulation Data (TGSIM)**:
+We use **TGSIM (Third Generation Simulation)** datasets:
 
-- Foggy Bottom dataset  
-  https://catalog.data.gov/dataset/third-generation-simulation-data-tgsim-foggy-bottom-trajectories  
+| Dataset | Link |
+|---------|------|
+| Foggy Bottom | [data.gov/tgsim-foggy-bottom](https://catalog.data.gov/dataset/third-generation-simulation-data-tgsim-foggy-bottom-trajectories) |
+| I-395 | [data.gov/tgsim-i-395](https://catalog.data.gov/dataset/third-generation-simulation-data-tgsim-i-395-trajectories) |
 
-- I-395 dataset  
-  https://catalog.data.gov/dataset/third-generation-simulation-data-tgsim-i-395-trajectories  
-
-### Important Notes
-- Raw datasets are **not included** due to file size limits  
-- Processed datasets are also not included  
-- Users must download raw data and generate datasets locally  
+> ⚠️ **Note:** Raw and processed datasets are not included due to size constraints. You must download and process them locally.
 
 ---
 
-## Reproducibility Pipeline
+## 🔄 Reproducibility
 
-### Step 1 — Download Raw Data
-Download datasets from the links above.
+### Step 1: Download Data
+Retrieve raw TGSIM datasets from the links above.
 
-### Step 2 — Create Processed Datasets
-Run:
-- dataset_creation_FB.ipynb
-- dataset_creation_I395.ipynb
+### Step 2: Process Trajectories
+```bash
+# Run data preprocessing notebooks
+jupyter notebook dataset_creation_FB.ipynb
+jupyter notebook dataset_creation_I395.ipynb
+```
 
-These notebooks:
-- Clean trajectory data  
-- Extract behavioral features  
-- Prepare inputs for profiling  
+These notebooks extract behavioral features and prepare profiling inputs.
 
-### Step 3 — Run Profiling Framework
-
+### Step 3: Run Profiling
 ```bash
 python quantum_driver_profiling.py
 ```
 
 ---
 
-## Citation
+## 🚀 Applications
 
-```
+This framework is **model-agnostic** and integrates with:
+
+- Reinforcement learning agents
+- Traffic simulators (SUMO, CARLA)
+- Behavioral prediction pipelines
+- Human-machine interaction models
+
+---
+
+## 📄 Citation
+
+```bibtex
 @article{elayan2026quantum,
   title={Behavioral Heterogeneity as Quantum-Inspired Representation},
   author={Elayan, Mohammad and Kontar, Wissam},
@@ -104,15 +95,13 @@ python quantum_driver_profiling.py
 
 ---
 
-## Contact
-- Mohammad Elayan — melayan2@nebraska.edu
-- Wissam Kontar — wkontar2@nebraska.edu
+## 📧 Contact
+
+- **Mohammad Elayan** — melayan2@nebraska.edu
+- **Wissam Kontar** — wkontar2@nebraska.edu
 
 ---
 
-## Notes
-- The framework is model-agnostic and can be integrated into:
-  - Reinforcement learning
-  - Traffic simulation (e.g., SUMO)
-  - Behavioral analysis pipelines
-- Full reproducibility is supported given access to raw TGSIM data.
+## 📝 License
+
+[Add license information]
