@@ -73,12 +73,10 @@ python quantum_driver_profiling.py
 
 ## 🚀 Applications
 
-This framework is **model-agnostic** and integrates with:
+While currently applied to the TGSIM datasets, this framework is **dataset-agnostic** and integrates with:
 
-- Reinforcement learning agents
-- Traffic simulators (SUMO, CARLA)
-- Behavioral prediction pipelines
-- Human-machine interaction models
+- Any dataset with basic kinematics
+- Any set of behavior and context variables
 
 ---
 
