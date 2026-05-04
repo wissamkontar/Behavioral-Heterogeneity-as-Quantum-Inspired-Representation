@@ -99,9 +99,3 @@ This framework is **model-agnostic** and integrates with:
 
 - **Mohammad Elayan** — melayan2@nebraska.edu
 - **Wissam Kontar** — wkontar2@nebraska.edu
-
----
-
-## 📝 License
-
-[Add license information]
